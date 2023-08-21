@@ -17,7 +17,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping(value = "/me", produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserInfoResponseDTO getInfoFromLoggedUser(@RequestHeader("Authorization") final String auth){
+    public UserInfoResponseDTO getInfoFromLoggedUser(@RequestHeader("Authorization") final String auth) {
         return this.userService.getInfoFromLoggedUser(auth);
     }
 }
