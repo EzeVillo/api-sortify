@@ -1,21 +1,27 @@
 package com.villo.sortify.converter.toDto;
 
+import com.villo.sortify.dto.response.PlayListResponseDTO.ItemPlayListResponseDTO;
 import com.villo.sortify.dto.response.PlayListResponseDTO;
-import com.villo.sortify.sto.response.ItemsResponseSTO;
+import com.villo.sortify.dto.response.PlayListResponseDTO.ImagePlayListResponseDTO;
 import com.villo.sortify.sto.response.PlayListResponseSTO;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class PlayListConverterToDTO {
-    public List<PlayListResponseDTO> playListResponseFromPlayListResponseSTO(PlayListResponseSTO playListResponseSTO) {
-        List<PlayListResponseDTO> result = new ArrayList<>();
-        for (ItemsResponseSTO x : playListResponseSTO.getItems()) {
-            result.add(PlayListResponseDTO.builder().name(x.getName()).build());
-        }
-
-        return result;
+    public PlayListResponseDTO playListResponseFromPlayListResponseSTO(final PlayListResponseSTO playListResponseSTO) {
+        return new PlayListResponseDTO(playListResponseSTO
+                .getItems()
+                .stream()
+                .map(item -> ItemPlayListResponseDTO.builder()
+                        .id(item.getId())
+                        .description(item.getDescription())
+                        .images(ImagePlayListResponseDTO.builder()
+                                .height(item.getImages().get(0).getHeight())
+                                .url(item.getImages().get(0).getUrl())
+                                .width(item.getImages().get(0).getWidth()).build())
+                        .name(item.getName())
+                        .total(item.getTracks().getTotal())
+                        .build()).toList());
     }
 }

@@ -13,6 +13,7 @@ public class UserServiceImpl implements UserService {
     private final SpotifyApiClient spotifyApiClient;
     private final UserConverterToDTO userConverterToDTO;
 
+    @Override
     public UserInfoResponseDTO getInfoFromLoggedUser(final String auth) {
         return this.userConverterToDTO.userInfoResponseFromUserInfoResponseSTO(this.spotifyApiClient.getInfoFromLoggedUser(auth));
     }

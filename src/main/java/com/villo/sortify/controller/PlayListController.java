@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequestMapping(value = "playlist")
 @RequiredArgsConstructor
@@ -20,7 +18,7 @@ public class PlayListController {
     private final PlayListService playListService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<PlayListResponseDTO>> getPlayListsFromLoggedUser(@RequestHeader("Authorization") final String auth){
+    public ResponseEntity<PlayListResponseDTO> getPlayListsFromLoggedUser(@RequestHeader("Authorization") final String auth) {
         return new ResponseEntity<>(this.playListService.getPlayListsFromLoggedUser(auth), HttpStatus.OK);
     }
 }
