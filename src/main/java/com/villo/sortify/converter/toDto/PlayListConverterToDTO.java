@@ -10,7 +10,7 @@ import java.util.List;
 
 @Component
 public class PlayListConverterToDTO {
-    public List<PlayListResponseDTO> PlayListToListDTO(PlayListResponseSTO playListResponseSTO){
+    public List<PlayListResponseDTO> playListResponseFromPlayListResponseSTO(PlayListResponseSTO playListResponseSTO) {
         List<PlayListResponseDTO> result = new ArrayList<>();
         for (ItemsResponseSTO x : playListResponseSTO.getItems()) {
             result.add(PlayListResponseDTO.builder().name(x.getName()).build());

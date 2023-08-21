@@ -17,6 +17,6 @@ public class PlayListServiceImpl implements PlayListService {
 
     @Override
     public List<PlayListResponseDTO> getPlayListsFromLoggedUser(final String auth) {
-        return this.playListConverterToDTO.PlayListToListDTO(this.spotifyApiClient.getPlayListsFromLoggedUser(auth));
+        return this.playListConverterToDTO.playListResponseFromPlayListResponseSTO(this.spotifyApiClient.getPlayListsFromLoggedUser(auth));
     }
 }
