@@ -2,7 +2,6 @@ package com.villo.sortify.controller;
 
 import com.villo.sortify.dto.response.UserInfoResponseDTO;
 import com.villo.sortify.service.UserService;
-import com.villo.sortify.sto.response.UserInfoResponseSTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

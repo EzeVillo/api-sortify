@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserConverterToDTO {
-    public UserInfoResponseDTO toDto(final UserInfoResponseSTO userInfoResponseSTO) {
+    public UserInfoResponseDTO userInfoResponseFromUserInfoResponseSTO(final UserInfoResponseSTO userInfoResponseSTO) {
         return UserInfoResponseDTO.builder().id(userInfoResponseSTO.getId()).displayName(userInfoResponseSTO.getDisplayName()).build();
     }
 }

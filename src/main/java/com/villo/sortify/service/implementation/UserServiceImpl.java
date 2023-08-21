@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
     private final SpotifyApiClient spotifyApiClient;
-    private final UserConverterToDTO userInfoResponseConverterDTO;
+    private final UserConverterToDTO userConverterToDTO;
 
     public UserInfoResponseDTO getInfoFromLoggedUser(String auth) {
-        return this.userInfoResponseConverterDTO.toDto(this.spotifyApiClient.getInfoFromLoggedUser(auth));
+        return this.userConverterToDTO.userInfoResponseFromUserInfoResponseSTO(this.spotifyApiClient.getInfoFromLoggedUser(auth));
     }
 }
