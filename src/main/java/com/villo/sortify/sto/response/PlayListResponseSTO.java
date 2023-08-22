@@ -4,13 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class PlayListResponseSTO {
-    private List<ItemPlayListResponseSTO> items;
+    private List<ItemPlayListResponseSTO> items = new ArrayList<>();
 
     @Data
     @AllArgsConstructor
@@ -19,7 +20,7 @@ public class PlayListResponseSTO {
         private String name;
         private String description;
         private String id;
-        private List<ImagePlayListResponseSTO> images;
+        private List<ImagePlayListResponseSTO> images = new ArrayList<>();
         private TrackPlayListResponseSTO tracks;
     }
 

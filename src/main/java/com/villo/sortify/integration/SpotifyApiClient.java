@@ -1,6 +1,7 @@
 package com.villo.sortify.integration;
 
 import com.villo.sortify.sto.response.PlayListResponseSTO;
+import com.villo.sortify.sto.response.TrackPlayListResponseSTO;
 import com.villo.sortify.sto.response.UserInfoResponseSTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,5 +14,8 @@ public interface SpotifyApiClient {
     UserInfoResponseSTO getInfoFromLoggedUser(@RequestHeader("Authorization") final String auth);
 
     @GetMapping(value = "users/{userId}/playlists")
-    PlayListResponseSTO getPlayListsFromLoggedUser(@RequestHeader("Authorization") final String auth, @PathVariable("userId") final String userId);
+    PlayListResponseSTO getPlayListsFromLoggedUser(@RequestHeader("Authorization") final String auth, @PathVariable final String userId);
+
+    @GetMapping(value = "playlists/{playListId}/tracks")
+    TrackPlayListResponseSTO getTracksFromPlayList(@RequestHeader("Authorization") final String auth, @PathVariable final String playListId);
 }
