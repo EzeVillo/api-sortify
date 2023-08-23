@@ -8,6 +8,7 @@ import com.villo.sortify.dto.response.TrackPlayListResponseDTO.ItemTrackPlayList
 import com.villo.sortify.sto.response.PlayListResponseSTO;
 import com.villo.sortify.sto.response.TrackPlayListResponseSTO;
 import org.springframework.stereotype.Component;
+import util.FormatDateUtils;
 
 
 @Component
@@ -37,7 +38,7 @@ public class PlayListConverterToDTO {
                                 .addedAt(item.getAddedAt())
                                 .albumName(item.getTrack().getAlbum().getName())
                                 .artistName(item.getTrack().getArtists().get(0).getName())
-                                .durationMs(item.getTrack().getDurationMs())
+                                .duration(FormatDateUtils.minutesFromMS(item.getTrack().getDurationMs()))
                                 .trackName(item.getTrack().getName())
                                 .popularity(item.getTrack().getPopularity())
                                 .releaseDate(item.getTrack().getAlbum().getReleaseDate())

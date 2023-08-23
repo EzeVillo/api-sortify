@@ -26,7 +26,7 @@ public class TrackPlayListResponseDTO {
         private LocalDateTime addedAt;
         private String albumName;
         private String artistName;
-        private int durationMs;
+        private String duration;
         private int popularity;
         private LocalDate releaseDate;
     }
